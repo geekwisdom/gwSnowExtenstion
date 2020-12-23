@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snow.js</title>
+    <script src="content-scripts/snow.js"></script>
+
+<script>
+var mysnow=new gwSnow();
+
+</script>
+
+
+    <style>html,body{margin:0;height:100%;}body{background:#6B92B9}</style>
+  </head>
+<body>
+<h1>Snow Options:</h1>
+<table>
+<tr>
+<td>Max Flakes</td>
+<td><input type="textbox" id="maxFlakes" name="MaxFlakes" size="4" value="25"></input></td>
+</tr>
+
+<tr>
+<td>Speed</td>
+<td><input type="textbox" id="speed" name="speed" size="4" value="0.75"></input></td>
+</tr>
+<tr>
+<td>Min Size</td>
+<td><input type="textbox" id="minsize" name="minsize" size="4" value="8"></input></td>
+</tr>
+
+<tr>
+<td>Max Size</td>
+<td><input type="textbox" id="maxsize" name="maxsize" size="4" value="24"></input></td>
+</tr>
+
+<tr>
+<td>Snowflake Color</td>
+<td><input type="textbox" id="sfcolor" name="sfcolor" size="20" value='["#DDD", "#EEE"]'></td></input>
+
+</tr>
+
+<tr>
+<td>Snowflake Entity</td>
+<td><input type="textbox" id="sfimg" name="sfimg" size="20" value='%E2%9D%84'></td></input>
+
+</tr>
+
+
+</table>
+<p>&nbsp;</p>
+<button onclick="startSnow();">Let it Snow!</button>
+
+<button onclick="mysnow.StopSnow();">
+Stop</button>
+
+
+<script>
+function startSnow()
+{
+var SettingsObj={}
+SettingsObj["snowMax"]=parseFloat(document.getElementById("maxFlakes").value);
+SettingsObj["snowColor"]=document.getElementById("sfcolor").value;
+SettingsObj["snowEntity"]=document.getElementById("sfimg").value;
+SettingsObj["snowSpeed"]=parseFloat(document.getElementById("speed").value);
+SettingsObj["snowMaxSize"]=parseFloat(document.getElementById("maxsize").value);
+SettingsObj["snowMinSize"]=parseFloat(document.getElementById("minsize").value);
+mysnow.initSnow(SettingsObj);
+//mysnow.initSnow();
+}
+</script>
+</body>
+
+</html>
